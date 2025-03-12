@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:id="@+id/image_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="80dp">
+
+        <!-- Card with Image -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/image_card"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/mediumPurple">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/food_image"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:scaleType="centerCrop"
+                android:src="@color/white"/>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <GridLayout
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_container"
+        android:padding="10dp"
+        android:id="@+id/food_output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/image_frame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:rowCount="3"
+        android:columnCount="2">
+
+        <!-- Dish Name - Spanning 2 Columns -->
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:layout_width="0dp"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="@drawable/rounded_container">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dish name: " />
+
+            <TextView
+                android:textStyle="bold|italic"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dish_name_display"
+                android:text="Dish name" />
+        </LinearLayout>
+
+        <!-- Nutrient Items -->
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="@drawable/rounded_container">
+
+            <TextView android:textStyle="italic" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="Calorie output:" />
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/calorie_display" android:text="Calorie output" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="@drawable/rounded_container">
+
+            <TextView
+                android:textStyle="italic"
+                android:layout_height="wrap_content" android:layout_width="match_parent" android:text="Protein output:" />
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/protein_display" android:text="Protein output" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="@drawable/rounded_container">
+
+            <TextView
+                android:textStyle="italic"
+                android:layout_height="wrap_content" android:layout_width="match_parent" android:text="Fats output:" />
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/fats_display" android:text="Fats output" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="@drawable/rounded_container">
+
+            <TextView
+                android:textStyle="italic"
+                android:layout_height="wrap_content" android:layout_width="match_parent" android:text="Carbs output:" />
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/carbs_display" android:text="Carbs output" />
+        </LinearLayout>
+
+    </GridLayout>
+
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save meal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/food_output" />
+
+    <Button
+        android:id="@+id/detail_button"
+        android:text="Detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/save_button"/>
+
+    <ImageView
+        android:id="@+id/deco_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="88dp"
+        android:rotation="340"
+        android:src="@drawable/anime_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/deco_image2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="-90dp"
+        android:rotation="0"
+        android:src="@drawable/anime_border2"
+        app:layout_constraintStart_toEndOf="@id/food_output"
+        app:layout_constraintTop_toTopOf="@id/food_output"
+        app:layout_constraintBottom_toBottomOf="@id/food_output" />
+
+    <ImageView
+        android:id="@+id/deco_image3"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="-230dp"
+        android:rotation="0"
+        android:src="@drawable/anime_border3"
+        app:layout_constraintEnd_toStartOf="@id/food_output"
+        app:layout_constraintTop_toTopOf="@id/food_output"
+        app:layout_constraintBottom_toBottomOf="@id/food_output" />
+
+    <ImageView
+        android:id="@+id/deco_image4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="-193dp"
+        android:rotation="0"
+        android:src="@drawable/anime_border4"
+        app:layout_constraintEnd_toStartOf="@id/food_output"
+        app:layout_constraintTop_toTopOf="@id/food_output"
+        app:layout_constraintBottom_toBottomOf="@id/food_output" />
+
+    <ImageView
+        android:id="@+id/deco_image5"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginStart="-100dp"
+        android:rotation="0"
+        android:src="@drawable/anime_border5"
+        app:layout_constraintStart_toEndOf="@id/food_output"
+        app:layout_constraintTop_toTopOf="@id/food_output"
+        app:layout_constraintBottom_toBottomOf="@id/food_output" />
+</androidx.constraintlayout.widget.ConstraintLayout>

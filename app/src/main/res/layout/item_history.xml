@@ -1,0 +1,76 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/rounded_container"
+    android:padding="8dp"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:id="@+id/food_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Food Name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/food_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/food_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/macronutrient_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/food_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:background="@color/white"
+            android:id="@+id/food_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/food_calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calories: 0g" />
+
+        <TextView
+            android:id="@+id/food_protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Protein: 0g" />
+
+        <TextView
+            android:id="@+id/food_carbs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carbs: 0g" />
+
+        <TextView
+            android:id="@+id/food_fats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fats: 0g" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BlackText"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/pfp_display"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedImageView"
+        app:strokeColor="@color/mediumPurple"
+        android:scaleType="centerCrop"
+        app:strokeWidth="2dp" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/pfp_edit"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="140dp"
+        android:alpha="0.5"
+        android:background="@drawable/edit"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+    <GridLayout
+        android:id="@+id/display_constraint"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_container"
+        android:columnCount="3"
+        android:padding="10dp"
+        android:rowCount="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pfp_display">
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:text="Name"
+            android:textSize="17dp" />
+
+        <TextView
+            android:layout_marginEnd="10dp"
+            android:text=":"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/name_display"
+            android:layout_gravity="center_horizontal"
+            android:text="Name"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:text="Gender"
+            android:textSize="17dp" />
+
+        <TextView
+            android:text=":"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/gender_display"
+            android:layout_gravity="center_horizontal"
+            android:text="Gender"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:text="Age"
+            android:textSize="17dp" />
+
+        <TextView
+            android:text=":"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/age_display"
+            android:layout_gravity="center_horizontal"
+            android:text="Age"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:maxLines="2"
+            android:text="Body\nWeight (kg)"
+            android:textSize="17dp" />
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:text=":"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/bw_display"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Bw"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:text="Height (cm)"
+            android:textSize="17dp" />
+
+        <TextView
+            android:text=":"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/height_display"
+            android:layout_gravity="center_horizontal"
+            android:text="Height"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:text="BMI"
+            android:textSize="17dp" />
+
+        <TextView
+            android:text=":"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/bmi_display"
+            android:layout_gravity="center_horizontal"
+            android:text="Bmi"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginEnd="10dp"
+            android:text="Diet\nPreferences"
+            android:textSize="17dp" />
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:text=":"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/diet_pref_display"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Diet Preferences"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:text="Edit Profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <GridLayout
+        android:id="@+id/edit_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_container"
+        android:columnCount="3"
+        android:padding="10dp"
+        android:rowCount="2"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pfp_display">
+
+        <TextView
+            android:text="Name"
+            android:textSize="20dp" />
+
+        <TextView
+            android:text=":"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:text="Age"
+            android:textSize="20dp" />
+
+        <TextView
+            android:text=":"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/age_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:maxLines="2"
+            android:text="Body\nWeight (kg)"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:text=":"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/bw_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:text="Height (cm)"
+            android:textSize="20dp" />
+
+        <TextView
+            android:text=":"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/height_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:text="Diet\nPreferences"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:text=":"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/diet_pref_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="70dp"
+        android:text="Save Profile"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+

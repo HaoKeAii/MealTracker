@@ -1,0 +1,48 @@
+String prompt1 = """
+            Please return JSON describing the food items detected in the image, using the following schema:
+
+            {
+                "dish_name": str,
+                "Foods": [
+                    {
+                        "name": str,
+                        "macronutrients": {
+                            "calories": float,
+                            "protein": float,
+                            "carbs": float,
+                            "fats": float
+                        }
+                    }
+                ]
+            }
+
+            Each food from the database is 100g, adjust the portion based on the image.
+            Here is the food database for reference:
+            """ + foodJson + """
+
+            Important: Only use the foods from the database.
+            Important: The total calories after each foods adds up should be around 100-1000 calories range.
+            Important: Only return a single valid JSON object.
+            """;
+
+
+String prompt2 = """
+            Please return JSON describing the food items detected in the image, using the following schema:
+
+            {
+                "dish_name": str,
+                "Foods": [
+                    {
+                        "name": str,
+                        "macronutrients": {
+                            "calories": float,
+                            "protein": float,
+                            "carbs": float,
+                            "fats": float
+                        }
+                    }
+                ]
+            }
+
+            Important: Only return a single valid JSON object.
+            """;
