@@ -1,4 +1,13 @@
-plugins {
+import java.util.Properties
+
+val secretsPropertiesFile = rootProject.file("secrets.properties")
+val secretsProperties = Properties()
+
+if (secretsPropertiesFile.exists()) {
+    secretsProperties.load(secretsPropertiesFile.inputStream())
+}
+
+    plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
 }
@@ -8,6 +17,12 @@ android {
     compileSdk = 35
 
     defaultConfig {
+        buildConfigField(
+            "String",
+            "API_KEY",
+            secretsProperties.getProperty("API_KEY")?.let { "\"$it\"" } ?: "\"\""
+        )
+        //println("API_KEY from secrets.properties: ${secretsProperties.getProperty("API_KEY")}")
         applicationId = "com.example.fitnessapp2"
         minSdk = 26
         targetSdk = 34
@@ -16,7 +31,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildFeatures {
+        buildConfig = true  // Ensure BuildConfig is generated
+    }
     buildTypes {
         release {
             isMinifyEnabled = false

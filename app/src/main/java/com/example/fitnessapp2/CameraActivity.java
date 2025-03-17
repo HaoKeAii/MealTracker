@@ -26,10 +26,12 @@ import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageCaptureException;
 import androidx.camera.core.Preview;
+import androidx.camera.core.TorchState;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
 import androidx.core.content.ContextCompat;
 
+import com.example.fitnessapp2.BuildConfig;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.google.ai.client.generativeai.java.GenerativeModelFutures;
@@ -68,6 +70,7 @@ public class CameraActivity extends AppCompatActivity {
     ProgressBar progressBar;
     private Camera camera;
     private boolean isFlashOn = false;
+    String apiKey = BuildConfig.API_KEY;
 
     private final ActivityResultLauncher<String> activityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.RequestPermission(), result -> {
@@ -191,8 +194,8 @@ public class CameraActivity extends AppCompatActivity {
                     Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     Uri imageUri = Uri.fromFile(file);
                     loadingScreen.setVisibility(View.VISIBLE);
-                    camera.getCameraControl().enableTorch(!isFlashOn);
                     processImageWithGemini(bitmap, imageUri);
+                    camera.getCameraControl().enableTorch(false);
                     progressBar.setProgress(20);
                 });
             }
@@ -214,7 +217,7 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     private void processImageWithGemini(Bitmap bitmap, Uri imgUri) {
-        GenerativeModel gm = new GenerativeModel("gemini-2.0-flash", BuildConfig.apiKey);
+        GenerativeModel gm = new GenerativeModel("gemini-2.0-flash", BuildConfig.API_KEY);
         progressBar.setProgress(50);
         GenerativeModelFutures model = GenerativeModelFutures.from(gm);
 
